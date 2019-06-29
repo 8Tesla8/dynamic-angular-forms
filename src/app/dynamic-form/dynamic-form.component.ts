@@ -32,14 +32,14 @@ export class DynamicFormComponent implements OnInit {
       if (value === 'male') {
         this.userInfo.controls['age'].setValidators([Validators.required, Validators.max(40)]);
 
-        nameRemoveControl ='married';
+        nameRemoveControl ='pet';
         nameAddControl ='proffesion';
       }
       else if (value === 'female') {
         this.userInfo.controls['age'].setValidators([Validators.required, Validators.max(30)]);
 
         nameRemoveControl ='proffesion';
-        nameAddControl ='married';
+        nameAddControl ='pet';
       }
 
       this.userInfo.controls['age'].updateValueAndValidity();
