@@ -65,6 +65,6 @@ export class UserInfo {
   public email: string;
   public gender: string;
 
-  public married: string; 
+  public pet: string; 
   public proffesion: string;
 }
