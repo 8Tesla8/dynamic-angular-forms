@@ -4,6 +4,17 @@
 
 <form [formGroup]="userInfo" (ngSubmit)="onClickSubmit(userInfo.value)">
 
+  <input type="text" name="name" formControlName="name" placeholder="Enter name">
+  <label *ngIf="userInfo.controls['name'].touched && 
+                  userInfo.controls['name'].invalid">
+    Not valid, name must be more than 5 symbols </label>
+  <br />
+
+  <input type="text" name="email" formControlName="email" placeholder="Enter email">
+  <label *ngIf="userInfo.controls['email'].touched && 
+                userInfo.controls['email'].invalid"> Required </label>
+  <br />
+
   <div>
     <label>Gender</label>
     <select name="gender" formControlName="gender">
@@ -39,5 +50,4 @@
   </div>
 
   <input type="submit" value="Save" [disabled]="userInfo.invalid">
-  <!-- <input type="submit" value="Save" > -->
 </form>

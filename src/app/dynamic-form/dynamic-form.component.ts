@@ -16,9 +16,9 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit() {
     this.userInfo = new FormGroup({
-      // name: new FormControl('',[Validators.required, Validators.minLength(5)]),
+      name: new FormControl('',[Validators.required, Validators.minLength(5)]),
       age: new FormControl('', [Validators.required, Validators.max(30)]),
-      // email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       gender: new FormControl('', Validators.required)
     });
 
@@ -51,11 +51,6 @@ export class DynamicFormComponent implements OnInit {
       }
 
       this.userInfo.addControl(nameAddControl, new FormControl('', Validators.required));
-
-      if(nameAddControl === 'proffesion'){
-        this.userInfo.controls['proffesion'].clearValidators();
-        this.userInfo.controls['proffesion'].setValidators([Validators.required, Validators.pattern("/^[a-zA-Z\s]*$/")]);
-      }
     });
   }
 
