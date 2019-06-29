@@ -1,0 +1,43 @@
+<p>
+  dynamic-form works!
+</p>
+
+<form [formGroup]="userInfo" (ngSubmit)="onClickSubmit(userInfo.value)">
+
+  <div>
+    <label>Gender</label>
+    <select name="gender" formControlName="gender">
+      <option *ngFor="let g of gender" [value]="g">{{g}}
+      </option>
+    </select>
+    <!-- <br /> -->
+  </div>
+
+  <input type="number" name="age" formControlName="age" placeholder="Enter age">
+  <label *ngIf="userInfo.controls['age'].touched && 
+                userInfo.controls['age'].invalid"> Not valid age</label>
+  <br />
+
+
+  <div *ngIf="userInfo.value['gender'] === 'female'">
+    <span>Are you married: </span>
+
+    <input type="radio" id="yes" name="married" formControlName="married" value="yes">
+    <label for="huey">Yes</label>
+
+    &nbsp;
+
+    <input type="radio" id="no" name="married" formControlName="married" value="no">
+    <label for="No">No</label>
+  </div>
+
+
+  <div *ngIf="userInfo.value['gender'] === 'men'">
+    <input type="text" name="proffesion" formControlName="proffesion" placeholder="Enter your profession">
+    <label *ngIf="userInfo.controls['proffesion'].touched && 
+                  userInfo.controls['proffesion'].invalid"> Required</label>
+  </div>
+
+  <input type="submit" value="Save" [disabled]="userInfo.invalid">
+  <!-- <input type="submit" value="Save" > -->
+</form>
