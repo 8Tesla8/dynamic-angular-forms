@@ -10,7 +10,7 @@ export class DynamicFormComponent implements OnInit {
 
   public userInfo: FormGroup;
 
-  public gender = ['female', 'men'];
+  public gender = ['female', 'male'];
 
   constructor() { }
 
@@ -29,7 +29,7 @@ export class DynamicFormComponent implements OnInit {
 
       this.userInfo.controls['age'].clearValidators();
 
-      if (value === 'men') {
+      if (value === 'male') {
         this.userInfo.controls['age'].setValidators([Validators.required, Validators.max(40)]);
 
         nameRemoveControl ='married';

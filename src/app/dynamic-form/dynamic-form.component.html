@@ -43,7 +43,7 @@
   </div>
 
 
-  <div *ngIf="userInfo.value['gender'] === 'men'">
+  <div *ngIf="userInfo.value['gender'] === 'male'">
     <input type="text" name="proffesion" formControlName="proffesion" placeholder="Enter your profession">
     <label *ngIf="userInfo.controls['proffesion'].touched && 
                   userInfo.controls['proffesion'].invalid"> Required</label>
